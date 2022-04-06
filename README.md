@@ -6,8 +6,10 @@ To run app locally:
 1. Python 3.8.x
 
 <h3>Steps</h3>
-1. Clone Repository
-2. Open terminal in Base directory
-3. Create a virtual environment and activate it.
-4. Run command pip install -r requirements.txt
-5. Run command python manage.py runserver
+<ul>
+  <li>1. Clone Repository</li>
+  <li>2. Open terminal in Base directory</li>
+  <li>3. Create a virtual environment and activate it.</li>
+  <li>4. Run command pip install -r requirements.txt</li>
+  <li>5. Run command python manage.py runserver</li>
+</ul>
