@@ -1,1 +1,1 @@
-web: gunicorn symptom_checker.symptom_checker.wsgi
+web: gunicorn symptom_checker.wsgi
