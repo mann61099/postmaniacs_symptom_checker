@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Diagnosis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/css/diagnosis.css">
+    <!--===============================================================================================-->
+
+</head>
+
+<body>
+
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100">
+                    <h1>Diagnosis</h1>
+                    <br>
+                    <br>
+                    <table>
+                        <thead>
+                            <tr class="table100-head">
+                                <th class="column1">Disease Name</th>
+                                <th class="column2">Probablity</th>
+                                <!-- <th class="column3">Recommendation</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for condition in conditions %}
+                            <tr>
+                                <td class="column1">{{condition.common_name}}</td>
+                                <td class="column2">{{condition.probability}}</td>
+                                <!-- <td class="column3">{{condition.condition_details.hint}}</td> -->
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

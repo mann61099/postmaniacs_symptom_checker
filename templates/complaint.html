@@ -1,0 +1,78 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/complaint/fonts/icomoon/style.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/complaint/css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="/static/css/complaint/css/style.css">
+
+    <title>Enter Complaint as Text</title>
+  </head>
+  <body>
+  
+
+  <div class="content">
+    
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              
+              <h3 class="heading mb-4">Let's talk Health!</h3>
+              <p>Enter your symptoms in the adjoining box</p>
+
+              <p><img src="/static/css/complaint/images/undraw_contact.svg" alt="Image" class="img-fluid"></p>
+
+
+            </div>
+            <div class="col-md-6">
+              
+              <form action="/factors" class="mb-5" method="post" id="contactForm" name="contactForm">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <textarea class="form-control" name="complaint" id="message" cols="30" rows="7" placeholder="How are you feeling today?"></textarea>
+                  </div>
+                </div>  
+                <div class="row">
+                  <div class="col-12">
+                    <input name="sub-1" type="submit" value="Submit" class="btn btn-primary rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                  </div>
+                </div>
+              </form>
+
+              <div id="form-message-warning mt-4"></div> 
+              <div id="form-message-success">
+                Your symptoms were registered, thank you!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    
+    
+
+    <script src="/static/css/complaint/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/css/complaint/js/popper.min.js"></script>
+    <script src="/static/css/complaint/js/bootstrap.min.js"></script>
+    <script src="/static/css/complaint/js/jquery.validate.min.js"></script>
+
+  </body>
+</html>

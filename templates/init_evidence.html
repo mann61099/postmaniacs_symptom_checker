@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/jquery/jquery.dropdown.css">
+    <script src="/static/jquery/jquery.dropdown.js"></script>
+    <title>Evidence</title>
+</head>
+
+
+<body>
+    <h1>Initial Evidence</h1>
+    {% if track == 'text' %}
+    <form action="/factors" method="post">
+        {% csrf_token %}
+        <label for="complaint">Enter your Complaint: </label>
+        <input type="text" name="complaint" id="complaint"><br>
+        <input type="submit" value="Submit" name="sub-1">
+    </form>
+    {% elif track == 'search' %}
+    <form action="/factors" method="post">
+        {% csrf_token %}
+        <label for="search">Search for symptoms: </label>
+        <div class="demo">
+            <select style="display:none"  name="sel[]" id="mul-2" multiple="multiple" placeholder="Select">
+                {% for sym in symptoms %}
+              <option value="{{sym.id}}">{{sym.name}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        <script>
+            $('.demo').dropdown({
+                limitCount: 5
+            });
+        </script>
+        <input type="submit" value="Submit" name="sub-2">
+    </form>
+    {% else %}
+    <form action="/factors" method="post">
+        {% csrf_token %}
+        <label for="search">Enter test result: </label>
+        <div class="demo">
+            <select style="display:none"  name="" id="mul-2" multiple placeholder="Select">
+                {% for sym in symptoms %}
+              <option value="{{sym.id}}">{{sym.name}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        <script>
+            $('.demo').dropdown({
+                limitCount: 5
+            });
+        </script>
+        <input type="submit" value="Search" name="sub-3">
+    </form>
+    {% endif %}
+</body>
+
+</html>

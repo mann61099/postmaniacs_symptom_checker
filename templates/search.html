@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/search/fonts/icomoon/style.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/search/css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="/static/search/css/style.css">
+
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/jquery/jquery.dropdown.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/jquery/jquery.dropdown.js"></script>
+
+    <title>Search Dropdown</title>
+  </head>
+  <body>
+  
+
+  <div class="content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <h3 class="heading mb-4">Don't worry we are here to help!</h3>
+              <p>Select your symptoms from the adjoining dropdown</p>
+              <p><img src="/static/search/images/undraw-contact.svg" alt="Image" class="img-fluid"></p>
+            </div>
+            <div class="col-md-6">
+              <form action="/factors" class="mb-5" method="post" id="contactForm" name="contactForm">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-12">
+                    <label for="search">Search for symptoms: </label>
+                    <div class="demo">
+                        <select style="display:none"  name="sel[]" id="mul-2" multiple="multiple" placeholder="Select">
+                            {% for sym in symptoms %}
+                          <option value="{{sym.id}}">{{sym.name}}</option>
+                          {% endfor %}
+                        </select>
+                      </div><br>
+                    <script>
+                        $('.demo').dropdown({
+                            limitCount: 5
+                        });
+                    </script>
+                    <input name="sub-2" type="submit" value="Submit" class="btn btn-primary rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                  </div>
+                </div>
+              </form>
+              <div id="form-message-warning mt-4"></div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    
+
+    <script src="/static/search/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/search/js/popper.min.js"></script>
+    <script src="/static/search/js/bootstrap.min.js"></script>
+    <script src="/static/search/js/jquery.validate.min.js"></script>
+
+  </body>
+</html>
